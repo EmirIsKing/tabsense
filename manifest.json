@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "TabSense",
+  "version": "1.0",
+  "description": "Search through open tabs, history, and organize them easily.",
+"host_permissions": [
+  "<all_urls>"
+],
+  "permissions": ["tabs", "tabGroups", "history", "storage", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type":"module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Tab Manager</h1>
+  <div id="popup-container">
+    <div id="search-options" class="search-options">
+      <label class="checkbox-label">
+        <input type="checkbox" id="searchOpenTabs" checked>
+        Open Tabs
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="searchHistory">
+        History
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="searchSavedTabs">
+        Saved Tabs
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="searchInsideTabs">
+        Tab Content
+      </label>
+    </div>
+
+    <div id="filter-options" class="filter-options">
+      <select id="domainFilter" class="filter-select" aria-label="Filter by domain">
+        <option value="all">All Domains</option>
+      </select>
+      <select id="timeFilter" class="filter-select" aria-label="Filter by time">
+        <option value="all">All Time</option>
+        <option value="recent">Recent (24h)</option>
+        <option value="older">Older</option>
+      </select>
+    </div>
+
+    <input 
+      type="text" 
+      id="search" 
+      placeholder="Search open tabs..."
+      aria-label="Search through your open tabs">
+    
+    <div class="button-group">
+      <button 
+        id="groupTabs"
+        aria-label="Group similar tabs together">
+        Group Tabs
+      </button>
+      <button 
+        id="ungroupTabs"
+        aria-label="Ungroup all grouped tabs">
+        Ungroup Tabs
+      </button>
+    </div>
+
+    <ul id="results" aria-live="polite" role="list"></ul>
+
+
+    <div id="tabSections">
+      <div class="collapsible-section">
+        <button class="collapsible-header" aria-expanded="false" aria-controls="allTabsSection">
+          <span class="header-text">All Tabs</span>
+          <span class="toggle-icon" aria-hidden="true">&#9650;</span>
+        </button>
+        <div id="allTabsSection" class="tab-section" aria-label="All open tabs"></div>
+      </div>
+
+      <div class="collapsible-section">
+        <button class="collapsible-header" aria-expanded="false" aria-controls="recentTabsSection">
+          <span class="header-text">Recent Tabs</span>
+          <span class="toggle-icon" aria-hidden="true">&#9650;</span>
+        </button>
+        <div id="recentTabsSection" class="tab-section" aria-label="Recently accessed tabs"></div>
+      </div>
+
+      <div class="collapsible-section">
+        <button class="collapsible-header" aria-expanded="false" aria-controls="savedTabsSection">
+          <span class="header-text">Saved Tabs</span>
+          <span class="toggle-icon" aria-hidden="true">&#9650;</span>
+        </button>
+        <div id="savedTabsSection" class="tab-section" aria-label="Saved tabs"></div>
+      </div>
+
+      <div class="collapsible-section">
+        <button class="collapsible-header" aria-expanded="false" aria-controls="historySection">
+          <span class="header-text">History</span>
+          <span class="toggle-icon" aria-hidden="true">&#9650;</span>
+        </button>
+        <div id="historySection" class="tab-section" aria-label="Browsing history"></div>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
